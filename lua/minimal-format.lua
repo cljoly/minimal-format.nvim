@@ -126,7 +126,7 @@ function M.format_with_formatprg(bufnr, background)
         table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, true), "\n")
         ~= table.concat(formatted_lines, "\n")
       then
-        vim.api.nvim_err_writeln "Did not apply the format patch correctly, please report a bug at https://cj.rs/minimal-format-nvim/bug"
+        vim.api.nvim_err_writeln "Did not apply the format patch correctly, please report a bug at https://cj.rs/minimal-format-nvim-bug"
         vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, formatted_lines)
       end
     end,
