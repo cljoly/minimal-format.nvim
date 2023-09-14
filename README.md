@@ -1,4 +1,31 @@
+<!-- insert
+---
+title: "minimal_format.nvim"
+date: 2023-09-14T10:02:37
+description: "Smart formatting for neovim"
+repo_url: "https://github.com/cljoly/minimal-format.nvim"
+tags:
+- NeoVim
+- Lua
+- Plugin
+---
+{{< github_badge >}}
+
+{{< rawhtml >}}
+<div class="badges">
+{{< /rawhtml >}}
+end_insert -->
+<!-- remove -->
 # Minimal Formatting for neovim
+<!-- end_remove -->
+
+![Neovim version](https://img.shields.io/badge/Neovim-0.9-57A143?style=flat&logo=neovim) [![](https://img.shields.io/badge/powered%20by-riss-lightgrey)](https://cj.rs/riss) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/cljoly/minimal_format.nvim?color=darkgreen&sort=semver)
+
+<!-- insert
+{{< rawhtml >}}
+</div>
+{{< /rawhtml >}}
+end_insert -->
 
 A simple powerful that extends neovim just a little bit to automatically format your code.
 
