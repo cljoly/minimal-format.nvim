@@ -1,7 +1,7 @@
 <!-- insert
 ---
-title: "minimal_format.nvim"
-date: 2023-09-14T10:02:37
+title: "minimal-format.nvim"
+date: 2023-09-13T10:02:37
 description: "Smart formatting for neovim"
 repo_url: "https://github.com/cljoly/minimal-format.nvim"
 tags:
@@ -19,7 +19,7 @@ end_insert -->
 # Minimal Formatting for neovim
 <!-- end_remove -->
 
-![Neovim version](https://img.shields.io/badge/Neovim-0.9-57A143?style=flat&logo=neovim) [![](https://img.shields.io/badge/powered%20by-riss-lightgrey)](https://cj.rs/riss) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/cljoly/minimal_format.nvim?color=darkgreen&sort=semver)
+![Neovim version](https://img.shields.io/badge/Neovim-0.9-57A143?style=flat&logo=neovim) [![](https://img.shields.io/badge/powered%20by-riss-lightgrey)](https://cj.rs/riss) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/cljoly/minimal-format.nvim?color=darkgreen&sort=semver)
 
 <!-- insert
 {{< rawhtml >}}
@@ -40,8 +40,8 @@ A simple powerful that extends neovim just a little bit to automatically format 
 Install this package with your favorite package manager.
 
 Then, you can configure some mappings or user commands to the following functions:
-* `require("minimal_format").format_with_formatprg(bufnr)`: format the buffer number `bufnr`
-* `require("minimal_format").toggle_autocmd`: toggle automatic formatting on write
+* `require("minimal-format").format_with_formatprg(bufnr)`: format the buffer number `bufnr`
+* `require("minimal-format").toggle_autocmd`: toggle automatic formatting on write
 
 ### Setting a Formatter per Language
 
@@ -53,7 +53,7 @@ if executable('clang-format')
 endif
 ```
 Paste the above snippet in `.config/nvim/ftplugin/c.vim`.
-Then when you call `require("minimal_format").format_with_formatprg(0)`, the current buffer will be asynchronously formatted with this command.
+Then when you call `require("minimal-format").format_with_formatprg(0)`, the current buffer will be asynchronously formatted with this command.
 
 Example for Rust, in `.config/nvim/ftplugin/rust.lua`:
 ```lua
@@ -65,7 +65,7 @@ if vim.fn.executable "rustfmt" then
   end
   vim.b.undo_ftplugin = vim.b.undo_ftplugin .. "|setl fp<"
 
-  require("minimal_format").enable_autocmd(0)
+  require("minimal-format").enable_autocmd(0)
 end
 ```
 This sets the `formatprg` setting and enable automatic formatting before writing. Also, dynamically detects the current rust edition and adds `formatprg` to `undo_ftplugin`.
@@ -73,6 +73,7 @@ This sets the `formatprg` setting and enable automatic formatting before writing
 ## Formatters per Language
 
 | Language | `formatprg`                        |
+|----------|------------------------------------|
 | C        | clang-format --assume-filename=a.c |
 | Lua      | stylua -                           |
 | Rust     | rustfmt --quiet --emit=stdout      |

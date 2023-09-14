@@ -126,7 +126,7 @@ function M.format_with_formatprg(bufnr, background)
         table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, true), "\n")
         ~= table.concat(formatted_lines, "\n")
       then
-        vim.api.nvim_err_writeln "Did not apply the format patch correctly, please report a bug at https://cj.rs/minimal_format/bug"
+        vim.api.nvim_err_writeln "Did not apply the format patch correctly, please report a bug at https://cj.rs/minimal-format-nvim/bug"
         vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, formatted_lines)
       end
     end,
@@ -145,7 +145,7 @@ function M.format_with_formatprg(bufnr, background)
   end
 end
 
-local autocmd_group = vim.api.nvim_create_augroup("minimal_format_on_save", { clear = false })
+local autocmd_group = vim.api.nvim_create_augroup("minimal-format_on_save", { clear = false })
 
 function M.enable_autocmd(bufnr)
   vim.api.nvim_create_autocmd("BufWritePre", {
@@ -182,10 +182,10 @@ function M.toggle_autocmd(bufnr)
   local status, autocmds = pcall(find_autocmds)
   if not status or #autocmds == 0 then
     M.enable_autocmd(bufnr)
-    print "Enabled autocmd for minimal_format"
+    print "Enabled autocmd for minimal-format"
   else
     disable_autocmd(autocmds, bufnr)
-    print "Disabled autocmd for minimal_format"
+    print "Disabled autocmd for minimal-format"
   end
 end
 
