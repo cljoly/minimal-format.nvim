@@ -27,10 +27,11 @@ end_insert -->
 {{< /rawhtml >}}
 end_insert -->
 
-A simple powerful that extends neovim just a little bit to automatically format your code.
+A simple & powerful formatting plugin that extends neovim just a little bit to automatically format your code.
 
 * Integrates with neovim constructs: use `formatprg`, the setting used by the `gq` mapping in default vim.
 * Asynchronous: neovim won’t hang while the formatting command is running
+* Doesn’t replace your code with garbage if the formatting command fails (like `gq` does)
 * Applies the minimum difference required to the buffer. This means that the whole buffer won’t be changed and marks and external marks (used e.g. for diagnostics) will be preserved. This makes formatting less disruptive to your workflow
 * Can be configured to trigger automatically on write, per buffer
 * No startup cost: call the functions you need when you need them, no need to set up anything at startup.
