@@ -47,7 +47,7 @@ end
 -- messages emited, among other tweaks to make the command easier to run
 -- automatically on write. Useful when configured to automatically format on save.
 function M.format_with_formatprg(bufnr, background)
-  if not (vim.opt_local.formatprg and vim.opt_local.formatprg:get() ~= "") then
+  if vim.opt_local.formatprg:get() == "" then
     -- Format and restore view
     local v = vim.fn.winsaveview()
     vim.cmd "normal! gggqG"
