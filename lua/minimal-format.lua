@@ -63,7 +63,9 @@ function M.format_with_formatprg(bufnr, background)
       -- TODO Check buffer ticks as well
       if exit_code > 0 then
         if not background then
-          vim.api.nvim_echo(outputs[job_id], true, {})
+          for _, line in ipairs(outputs[job_id]["all"]) do
+            vim.api.nvim_err_writeln(line)
+          end
           vim.api.nvim_err_writeln("formatprg '" .. prg .. "' failed with code " .. exit_code)
         end
         return
@@ -142,6 +144,7 @@ function M.format_with_formatprg(bufnr, background)
   local wait_res = vim.fn.jobwait({ job_id }, timeout)
   if wait_res[1] == -1 then
     vim.api.nvim_err_writeln("formatprg '" .. prg .. "' took too long")
+    vim.fn.jobstop(job_id)
   end
 end
 
